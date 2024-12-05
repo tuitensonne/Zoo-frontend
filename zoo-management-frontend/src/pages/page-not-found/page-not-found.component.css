@@ -1,0 +1,44 @@
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+.not-found-container {
+  text-align: center;
+  padding: 50px;
+  max-width: 600px;
+  margin: 100px auto;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.not-found-title {
+  font-size: 120px;
+  font-weight: bold;
+  margin: 0;
+  color: #ff6f61;
+}
+
+.not-found-message {
+  font-size: 18px;
+  margin: 20px 0;
+  line-height: 1.6;
+}
+
+.go-home-button {
+  font-size: 16px;
+  color: #ffffff;
+  background-color: #ff6f61;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.go-home-button:hover {
+  background-color: #e65b50;
+}

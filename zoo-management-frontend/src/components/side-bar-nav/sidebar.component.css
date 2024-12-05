@@ -1,0 +1,93 @@
+/* Tổng thể sidebar */
+.sidebar {
+  background-color: #ffffff;
+  width: 250px;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Thêm bóng cho sidebar */
+  
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header của Sidebar */
+.sidebar-header {
+  margin-top: 20px;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* Logo sidebar */
+.sidebar-logo {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover; /* Đảm bảo hình ảnh không bị méo */
+}
+
+/* Navbar chứa danh sách menu */
+.navbar {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-left: 20px; /* Khoảng cách từ bên trái */
+  margin-bottom: 20px;
+}
+
+/* Danh sách các mục menu */
+.sidebar-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+/* Mỗi item trong sidebar */
+.sidebar-item {
+  width: auto;
+  padding: 12px 20px;
+  text-align: left;
+  font-size: 16px;
+  color: #333;
+  transition: background-color 0.3s ease, color 0.3s ease; /* Hiệu ứng chuyển màu */
+  border-radius: 5px; /* Góc bo tròn cho item */
+}
+
+
+/* Mục không có item cuối cùng */
+.sidebar-item:not(:last-child) {
+  border-bottom: 1px solid #ddd;
+}
+
+/* Các liên kết trong item */
+.sidebar-item a {
+  text-decoration: none;
+  color: inherit; /* Đảm bảo link không thay đổi màu */
+}
+
+/* Các nút trong sidebar */
+.sidebar-item button {
+  background: none;
+  border: none;
+  text-align: left;
+  color: inherit;
+  font-size: inherit;
+  cursor: pointer;
+  width: 100%;
+}
+
+/* Hiệu ứng hover cho nút */
+.sidebar-item button:hover {
+  color: #31a238;
+  cursor: pointer;
+}
+
+/* Liên kết "Đăng xuất" */
+.sidebar-item a:hover {
+  color: #dc3545; /* Đổi màu khi hover */
+}
+

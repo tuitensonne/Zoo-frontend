@@ -1,0 +1,41 @@
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #000;
+  color: #fff;
+  padding: 20px 50px;
+
+  margin-left: 250px;
+}
+
+.footer-left {
+  display: flex;
+  align-items: center;
+}
+
+.footer-logo {
+  width: 60px;
+  height: 60px;
+  margin-right: 20px;
+}
+
+.footer-text h3 {
+  margin: 0;
+  font-size: 1.5em;
+}
+
+.footer-text p {
+  margin: 5px 0;
+  font-size: 1em;
+}
+
+.footer-right h3 {
+  margin: 0;
+  font-size: 1.5em;
+}
+
+.footer-right p {
+  margin: 5px 0;
+  font-size: 1em;
+}
