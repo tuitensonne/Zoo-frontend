@@ -1,21 +1,7 @@
 html, body {
-  text-align: center;
   background-color: #DCDEE0;
-
-  height: 100%;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
+  margin-left: 250px;
 }
-
-.App {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  flex: 1;
-}
-
-.content {
-  flex: 1;
+#root, .App {
   height: 100%;
 }

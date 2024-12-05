@@ -20,7 +20,7 @@ export default function OfficeEmployeeComponent() {
     }, [userRole, navigate]);
 
     return (
-        <div className="login-container">
+        <div className="office-container">
             <SidebarComponent/>
             <Routes>
                 <Route index element={<ExportComponent/>} />  {}
