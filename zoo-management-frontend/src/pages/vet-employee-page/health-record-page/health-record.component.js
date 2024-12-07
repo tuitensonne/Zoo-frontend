@@ -56,7 +56,7 @@ export default function HealthRecordsComponent() {
                             <td>{record.weight}</td>
                             <td>
                                 {/* Thêm link tới trang chi tiết */}
-                                <Link to={`./details/${record.id}`}>
+                                <Link to={`/vet/hssk/details/${record.id}`}>
                                     <button className="detail-button">Xem Chi Tiết</button>
                                 </Link>
                             </td>

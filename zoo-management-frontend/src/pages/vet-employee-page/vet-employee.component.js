@@ -30,8 +30,8 @@ export default function VetEmployeeComponent() {
             <SidebarComponent/>
             <Routes>
                 <Route index element={<HealthRecordsComponent/>} />  {}
-                <Route path="hssk" element={<HealthRecordsComponent/>} />  {}
                 <Route path="hssk/details/:id" element={<RecordDetailPage/>} />
+                <Route path="hssk" element={<HealthRecordsComponent/>} />  {}
                 <Route path="dt" element={<TreatmentComponent/>} />  {}
                 <Route path="tc" element={<VaccinationComponent/>} />  {}
             </Routes>
