@@ -1,31 +1,25 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
-import { createTheme } from "@mui/material/styles";
-import { AppProvider, type Navigation } from "@toolpad/core/AppProvider";
+import {
+  AppProvider,
+  type Navigation,
+  type Authentication,
+  type Session,
+} from "@toolpad/core/AppProvider";
 import { DashboardLayout } from "@toolpad/core/DashboardLayout";
 import { useDemoRouter } from "@toolpad/core/internal";
+import Footer from "./Footer";
+import themeProps from "../../../theme";
 
 // Sidebar props interface
 interface SidebarProps {
   navigation: Navigation; // Accepts navigation as a prop
+  session: Session | null;
+  authentication: Authentication;
 }
 
-const demoTheme = createTheme({
-  cssVariables: {
-    colorSchemeSelector: "data-toolpad-color-scheme",
-  },
-  colorSchemes: { light: true, dark: true },
-  breakpoints: {
-    values: {
-      xs: 0,
-      sm: 600,
-      md: 600,
-      lg: 1200,
-      xl: 1536,
-    },
-  },
-});
+const theme = themeProps;
 
 function DemoPageContent({ pathname }: { pathname: string }) {
   return (
@@ -43,13 +37,24 @@ function DemoPageContent({ pathname }: { pathname: string }) {
   );
 }
 
-export default function Sidebar({ navigation }: SidebarProps) {
+export default function Sidebar({
+  navigation,
+  session,
+  authentication,
+}: SidebarProps) {
   const router = useDemoRouter("/dashboard");
 
   return (
-    <AppProvider navigation={navigation} router={router} theme={demoTheme}>
+    <AppProvider
+      navigation={navigation}
+      router={router}
+      theme={theme}
+      session={session}
+      authentication={authentication}
+    >
       <DashboardLayout>
         <DemoPageContent pathname={router.pathname} />
+        <Footer />
       </DashboardLayout>
     </AppProvider>
   );

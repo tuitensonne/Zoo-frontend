@@ -6,19 +6,23 @@ import {
   Navigate,
 } from "react-router-dom";
 import NotificationsSignInPageError from "../pages/Login/LoginPage";
-import HomePage from "../pages/Home/HomePage";
+import CaretakerHomePage from "../pages/Home/CaretakerHomePage";
+import ClerkHomePage from "../pages/Home/ClerkHomePage";
+import VetHomePage from "../pages/Home/VetHomePage";
 
 const App: React.FC = () => {
   return (
     <Router>
       <Routes>
-        {/* Default Route: Redirect to /login */}
         <Route path="/" element={<Navigate to="/login" replace />} />
 
-        {/* Login Page */}
         <Route path="/login" element={<NotificationsSignInPageError />} />
 
-        <Route path="/home" element={<HomePage />} />
+        <Route path="/home">
+          <Route path="vet" element={<VetHomePage />}></Route>
+          <Route path="clerk" element={<ClerkHomePage />}></Route>
+          <Route path="caretaker" element={<CaretakerHomePage />}></Route>
+        </Route>
         {/* Add more routes as needed */}
       </Routes>
     </Router>
