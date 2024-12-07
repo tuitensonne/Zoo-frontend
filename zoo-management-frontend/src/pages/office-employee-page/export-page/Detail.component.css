@@ -1,0 +1,78 @@
+.details-container {
+    margin: 20px auto;
+    padding: 20px;
+    max-width: 800px;
+    border: 1px solid #ddd;
+    padding-bottom: 50px; 
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    font-family: Arial, sans-serif;
+    position: relative;
+}
+
+h2 {
+    text-align: center;
+    color: #333;
+}
+
+.section {
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fff;
+}
+
+.section h3 {
+    margin-bottom: 10px;
+    color: #0056b3;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 5px;
+}
+
+.table {
+    display: table;
+    width: 100%;
+    border-spacing: 10px;
+}
+
+.table-row {
+    display: table-row;
+}
+
+.table-cell {
+    display: table-cell;
+    padding: 5px 10px;
+    /* vertical-align: middle; */
+    border-radius: 10px;
+    text-align: left; /* Căn chữ về bên trái */
+}
+
+.table-cell:first-child {
+    font-weight: bold;
+    width: 25%;
+    color: #555;
+    text-align:end;
+}
+
+.table-cell:last-child {
+    color: #333;
+    border: 1px solid #555;
+    background-color: #ddd;
+}
+
+.back-button {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.back-button:hover {
+    background-color: #0056b3;
+}

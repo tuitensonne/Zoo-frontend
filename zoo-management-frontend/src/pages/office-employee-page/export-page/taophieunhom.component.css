@@ -1,0 +1,65 @@
+.create-export-form {
+    width: 100%;
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.create-export-form h3 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.create-export-form label {
+    display: block;
+    margin-bottom: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: left;
+}
+
+.create-export-form input,
+.create-export-form select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.create-export-form input[type="number"],
+.create-export-form input[type="date"],
+.create-export-form input[type="text"] {
+    width: calc(100% - 20px); /* Adjusts input size for padding */
+}
+
+.create-export-form button {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.create-export-form button:hover {
+    background-color: #0056b3;
+}
+
+.error {
+    color: red;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.create-export-form select {
+    cursor: pointer;
+}
