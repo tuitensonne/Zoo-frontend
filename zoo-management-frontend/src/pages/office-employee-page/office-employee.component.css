@@ -1,3 +1,4 @@
 .office-container {
-  height: 100%;
+  height: inherit;
+  margin-left: 250px;
 }
