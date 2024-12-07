@@ -1,0 +1,43 @@
+        {/* Clerk Routes */}
+        <Route path="/home/clerk">
+          <Route index element={<Navigate to="dashboard" replace />} />
+          <Route path="dashboard" element={<ClerkHomePage />} />
+          <Route path="import" element={<div>Import Ticket Page</div>} />
+          <Route path="export" element={<div>Export Ticket Page</div>} />
+        </Route>
+
+        {/* Caretaker Routes */}
+        <Route path="/home/caretaker">
+          <Route index element={<Navigate to="dashboard" replace />} />
+          <Route path="dashboard" element={<CaretakerHomePage />} />
+          <Route path="feed" element={<div>Feed Page</div>} />
+        </Route>
+
+
+import Dashboard from "./layouts/Dashboard";
+import { ROLE_NAVIGATION } from "../configs/SidebarRoleConfig";
+
+const [session, setSession] = React.useState<Session | null>({
+  user: {
+    name: "Bharat Kashyap",
+    email: "bharatkashyap@outlook.com",
+    image: "https://avatars.githubusercontent.com/u/19550456",
+  },
+});
+
+const authentication = React.useMemo(() => {
+  return {
+    signIn: () => {
+      setSession({
+        user: {
+          name: "Bharat Kashyap",
+          email: "bharatkashyap@outlook.com",
+          image: "https://avatars.githubusercontent.com/u/19550456",
+        },
+      });
+    },
+    signOut: () => {
+      setSession(null);
+    },
+  };
+}, []);

@@ -15,6 +15,10 @@ type RoleNavigation = {
   Caretaker: Navigation;
 };
 
+const vetBase: string = "home/vet/";
+const clerkBase: string = "home/clerk/";
+const caretakerBase: string = "home/caretaker/";
+
 export const ROLE_NAVIGATION: RoleNavigation = {
   Vet: [
     {
@@ -22,17 +26,17 @@ export const ROLE_NAVIGATION: RoleNavigation = {
       title: "Dashboard",
     },
     {
-      segment: "vet-dashboard",
+      segment: vetBase + "dashboard",
       title: "Hồ sơ sức khỏe",
       icon: <DashboardCustomizeIcon />,
     },
     {
-      segment: "treatment",
+      segment: vetBase + "treatment",
       title: "Điều trị",
       icon: <MedicalInformationIcon />,
     },
     {
-      segment: "vaccination",
+      segment: vetBase + "vaccination",
       title: "Tiêm chủng",
       icon: <VaccinesIcon />,
     },
@@ -44,7 +48,7 @@ export const ROLE_NAVIGATION: RoleNavigation = {
       title: "Tạo mới",
     },
     {
-      segment: "new",
+      segment: vetBase + "new",
       title: "Tạo phiếu",
       icon: <CreateNewFolderIcon />,
       children: [
@@ -67,22 +71,22 @@ export const ROLE_NAVIGATION: RoleNavigation = {
       title: "Dashboard",
     },
     {
-      segment: "clerk-dashboard",
+      segment: clerkBase + "dashboard",
       title: "Thông tin chăm sóc",
       icon: <DashboardCustomizeIcon />,
     },
     {
-      segment: "import-ticket",
+      segment: clerkBase + "import",
       title: "Phiếu nhập",
       icon: <BookmarkAddIcon />,
     },
     {
-      segment: "export-ticket",
+      segment: clerkBase + "export",
       title: "Phiếu xuất",
       icon: <BookmarkRemoveIcon />,
     },
     {
-      segment: "partners",
+      segment: clerkBase + "partners",
       title: "Đối tác",
       icon: <HandshakeIcon />,
     },
@@ -94,17 +98,17 @@ export const ROLE_NAVIGATION: RoleNavigation = {
       title: "Tạo mới",
     },
     {
-      segment: "new",
+      segment: clerkBase + "new",
       title: "Tạo phiếu",
       icon: <CreateNewFolderIcon />,
       children: [
         {
-          segment: "import-ticket",
+          segment: "import",
           title: "Điều trị",
           icon: <BookmarkAddIcon />,
         },
         {
-          segment: "export-ticket",
+          segment: "export",
           title: "Tiêm chủng",
           icon: <BookmarkRemoveIcon />,
         },
@@ -122,7 +126,7 @@ export const ROLE_NAVIGATION: RoleNavigation = {
       title: "Dashboard",
     },
     {
-      segment: "caretaker-dashboard",
+      segment: caretakerBase + "dashboard",
       title: "Lịch sử cho ăn",
       icon: <KitchenIcon />,
     },
@@ -134,7 +138,7 @@ export const ROLE_NAVIGATION: RoleNavigation = {
       title: "Tạo mới",
     },
     {
-      segment: "new",
+      segment: caretakerBase + "new",
       title: "Tạo phiếu",
       icon: <CreateNewFolderIcon />,
       children: [
