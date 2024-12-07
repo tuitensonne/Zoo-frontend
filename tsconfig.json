@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "checkJs": false,
+    "jsx": "react-jsx",
+    "strict": true,
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "target": "esnext",
+    "module": "esnext",
+    "skipLibCheck": true,
+    "outDir": "./dist", // Specify output directory for compiled files
+    "isolatedModules": true // Avoid conflicts during compilation
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "dist"] // Exclude the output directory to prevent conflicts
+}
