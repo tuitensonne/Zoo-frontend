@@ -4,13 +4,23 @@ import {
   Routes,
   Route,
   Navigate,
+  Outlet,
 } from "react-router-dom";
 import NotificationsSignInPageError from "../pages/Login/LoginPage";
 import Dashboard from "./layouts/Dashboard";
-import VetDashboard from "../pages/Vet/Dashboard";
+
+import RecordComponent from "../pages/Vet/RecordPage";
+import TreatmentComponent from "../pages/Vet/TreatmentPage";
+import VaccinationComponent from "../pages/Vet/VaccinationPage";
+
+import AnimalExportComponent from "../pages/Clerk/ExportPage";
+import SingleExportComponent from "../pages/Clerk/SingleExportPage";
+import GroupExportComponent from "../pages/Clerk/GroupExportPage";
+
 import CareTakerDashboard from "../pages/Caretaker/Dashboard";
 import FoodFormPage from "../pages/Caretaker/NewFeeding";
 import { ROLE_NAVIGATION } from "../configs/SidebarRoleConfig";
+import FoodImportComponent from "../pages/Clerk/FoodImportPage";
 
 const App: React.FC = () => {
   return (
@@ -27,10 +37,13 @@ const App: React.FC = () => {
           path="/home/vet/*"
           element={<Dashboard navigation={ROLE_NAVIGATION.Vet} />}
         >
-          <Route index element={<Navigate to="dashboard" replace />} />
-          <Route path="dashboard" element={<VetDashboard />} />
-          <Route path="vaccination" element={<div>Vaccination Page</div>} />
-          <Route path="treatment" element={<div>Treatment Page</div>} />
+          <Route index element={<Navigate to="records" replace />} />
+          <Route path="records" element={<RecordComponent />} />
+          {/* <Route path="vaccination" element={<VaccinationComponent />} /> */}
+          {/* <Route path="treatment" element={<TreatmentComponent />} /> */}
+          <Route path="new/vaccination" element={<VaccinationComponent />} />
+          <Route path="new/treatment" element={<TreatmentComponent />} />
+          {/* </Route> */}
         </Route>
 
         {/* Clerk Routes */}
@@ -40,8 +53,19 @@ const App: React.FC = () => {
         >
           <Route index element={<Navigate to="dashboard" replace />} />
           <Route path="dashboard" element={<div>Clerk Dashboard</div>} />
+
+          {/*  */}
+          <Route path="export" element={<AnimalExportComponent />} />
+          <Route path="export/single" element={<SingleExportComponent />} />
+          <Route path="export/group" element={<GroupExportComponent />} />
+
+          {/*  */}
           <Route path="import" element={<div>Import Ticket Page</div>} />
-          <Route path="export" element={<div>Export Ticket Page</div>} />
+          <Route path="import/foods" element={<FoodImportComponent />} />
+          <Route
+            path="import/animals"
+            element={<div>Hello from new import</div>}
+          />
         </Route>
 
         {/* Caretaker Routes */}

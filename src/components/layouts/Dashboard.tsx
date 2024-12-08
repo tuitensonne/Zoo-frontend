@@ -11,7 +11,7 @@ export default function Dashboard({ navigation }: { navigation: Navigation }) {
   return (
     <AppProvider navigation={navigation} theme={theme}>
       <DashboardLayout>
-        <Box sx={{ width: "90%", margin: "0 auto" }}>
+        <Box sx={{ width: "95%", margin: "auto", padding: 0 }}>
           <Outlet />
         </Box>
         <Footer />

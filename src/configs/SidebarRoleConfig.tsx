@@ -7,6 +7,10 @@ import BookmarkRemoveIcon from "@mui/icons-material/BookmarkRemove";
 import HandshakeIcon from "@mui/icons-material/Handshake";
 import LocalDiningIcon from "@mui/icons-material/LocalDining";
 import KitchenIcon from "@mui/icons-material/Kitchen";
+import PetsIcon from "@mui/icons-material/Pets";
+import FoodBankIcon from "@mui/icons-material/FoodBank";
+import PersonIcon from "@mui/icons-material/Person";
+import PeopleIcon from "@mui/icons-material/People";
 import { type Navigation } from "@toolpad/core";
 
 type RoleNavigation = {
@@ -26,7 +30,7 @@ export const ROLE_NAVIGATION: RoleNavigation = {
       title: "Dashboard",
     },
     {
-      segment: vetBase + "dashboard",
+      segment: vetBase + "records",
       title: "Hồ sơ sức khỏe",
       icon: <DashboardCustomizeIcon />,
     },
@@ -97,28 +101,52 @@ export const ROLE_NAVIGATION: RoleNavigation = {
       kind: "header",
       title: "Tạo mới",
     },
+    // {
+    // segment: clerkBase + "new",
+    // title: "Tạo phiếu",
+    // icon: <CreateNewFolderIcon />,
+    // children: [
     {
-      segment: clerkBase + "new",
-      title: "Tạo phiếu",
-      icon: <CreateNewFolderIcon />,
+      segment: clerkBase + "import",
+      title: "Phiếu nhập",
+      icon: <BookmarkAddIcon />,
       children: [
         {
-          segment: "import",
-          title: "Điều trị",
-          icon: <BookmarkAddIcon />,
+          segment: "animals",
+          title: "Nhập động vật",
+          icon: <PetsIcon />,
         },
         {
-          segment: "export",
-          title: "Tiêm chủng",
-          icon: <BookmarkRemoveIcon />,
-        },
-        {
-          segment: "partners",
-          title: "Đối tác",
-          icon: <HandshakeIcon />,
+          segment: "foods",
+          title: "Nhập thức ăn",
+          icon: <FoodBankIcon />,
         },
       ],
     },
+    {
+      segment: clerkBase + "export",
+      title: "Phiếu xuất",
+      icon: <BookmarkRemoveIcon />,
+      children: [
+        {
+          segment: "single",
+          title: "Xuất cá thể",
+          icon: <PersonIcon />,
+        },
+        {
+          segment: "group",
+          title: "Xuất nhóm",
+          icon: <PeopleIcon />,
+        },
+      ],
+    },
+    {
+      segment: clerkBase + "partners",
+      title: "Đối tác",
+      icon: <HandshakeIcon />,
+    },
+    // ],
+    // },
   ],
   Caretaker: [
     {
