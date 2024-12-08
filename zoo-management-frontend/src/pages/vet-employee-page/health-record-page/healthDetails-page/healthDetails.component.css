@@ -1,0 +1,98 @@
+/* General container styling */
+.health-record-detail-container {
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    max-width: 800px;
+    margin: auto;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Title styling */
+.health-record-detail-container h2 {
+    color: #2c3e50;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Label styling */
+.section-label {
+    display: block;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    font-size: 1.1em;
+    color: #2c3e50;
+    text-align: left; 
+}
+
+/* Divider line */
+.section-divider {
+    border: 0;
+    border-top: 2px solid #ddd;
+    margin: 10px 0;
+    width: 100%; 
+}
+
+
+/* Table styling */
+.health-records-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    font-size: 0.9em;
+    background-color: #ffffff;
+}
+
+.health-records-table th, .health-records-table td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+.health-records-table th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+.health-records-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.health-records-table tr:hover {
+    background-color: #f1f1f1;
+}
+
+.back-button {
+    background-color: #007bff; 
+    color: white;
+    padding: 8px 22px; 
+    border: none;
+    border-radius: 3px; 
+    cursor: pointer;
+    font-size: 0.9rem; 
+    margin-top: 20px; 
+    margin-left: 0; 
+    width: auto; 
+    max-width: 150px; 
+    float: left;
+}
+
+
+.back-button:hover {
+    background-color: #0056b3; 
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .health-record-detail-container {
+        padding: 10px;
+    }
+
+    .health-records-table th, .health-records-table td {
+        font-size: 0.8em;
+        padding: 8px;
+    }
+}
