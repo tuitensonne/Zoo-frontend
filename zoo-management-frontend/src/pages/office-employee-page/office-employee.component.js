@@ -29,7 +29,7 @@ export default function OfficeEmployeeComponent() {
             <Routes>
                 <Route index element={<ExportComponent/>} />  {}
                 <Route path="caring-history" element={<CaringHistoryComponent/>} />  {}
-                <Route path="import" element={<ImportComponent/>} />  {}
+                <Route path="import/*" element={<ImportComponent/>} />  {}
                 <Route path="export" element={<ExportComponent/>} />  {}
                 <Route path="partner" element={<PartnerComponent/>} />  {}
                 <Route path="export/details/:id" element={<DetailComponent />} />
