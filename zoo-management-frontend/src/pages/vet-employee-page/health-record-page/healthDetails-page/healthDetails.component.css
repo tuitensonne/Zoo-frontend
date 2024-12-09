@@ -1,12 +1,15 @@
 /* General container styling */
 .health-record-detail-container {
+    margin-left: 250px; /* Dịch sang phải bằng chiều rộng của sidebar */
     padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    max-width: 800px;
-    margin: auto;
-    background-color: #f9f9f9;
+    padding-bottom: 60px;
+    background-color: #ffffff;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    width: calc(100% - 250px); /* Chiều rộng còn lại sau khi trừ sidebar */
+    max-width: 1200px; /* Giới hạn chiều rộng tối đa */
+    /* height: 750px; /* Chiều cao cố định */
+    
 }
 
 /* Title styling */
