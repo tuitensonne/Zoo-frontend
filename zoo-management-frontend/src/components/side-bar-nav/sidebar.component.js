@@ -43,6 +43,7 @@ export default function SidebarComponent() {
             { label: "Phiếu Nhập", link: "/office/import" },
             { label: "Phiếu Xuất", link: "/office/export" },
             { label: "Đối Tác", link: "/office/partner" },
+            { label: "Khu vực nuôi", link: "/office/khuvucnuoi" },
         ],
     };
 
