@@ -1,24 +1,25 @@
 
 .treatment-form-container {
-    overflow-x: auto;
-    max-width: 100%; 
-    width: 60%;
-    margin: 0 auto; 
+    margin-left: 250px; /* Dịch sang phải bằng chiều rộng của sidebar */
     padding: 20px;
     background-color: #ffffff;
-    border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    width: calc(100% - 250px); /* Chiều rộng còn lại sau khi trừ sidebar */
+    max-width: 1200px; /* Giới hạn chiều rộng tối đa */
+    height: 700px; /* Chiều cao cố định */
 }
 
 .form-title {
     text-align: center;
-    font-size: 24px;
+    font-size: 14px;
     margin-bottom: 20px;
 }
 
 .treatment-form label {
+    color: #05084d;
     display: block;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     font-weight: bold;
     text-align: left;
 }
@@ -28,7 +29,7 @@
     width: 100%;
     padding: 8px;
     margin-top: 5px;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
 }
