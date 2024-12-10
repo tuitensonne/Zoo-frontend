@@ -1,13 +1,45 @@
-import React from 'react';
+import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from 'react-router-dom'; 
 import "./healthDetails.component.css";
-import { mockHealthRecords } from "../../../../pages/vet-employee-page/mockHealthRecords"; 
+// import { mockHealthRecords } from "../../../../pages/vet-employee-page/mockHealthRecords"; 
+import { getHealthRecordsDetails } from "../../../../services/healthRecordService";
+import { typeMapping, sexMapping } from "../../../../services/enumMappings";
+
 
 const HealthRecordDetail = () => {
     const { id } = useParams();
     const navigate = useNavigate();
 
-    const record = mockHealthRecords.find(record => record.id === parseInt(id));
+    const [record, setRecord] = useState(null); // Dữ liệu hồ sơ
+    const [loading, setLoading] = useState(true); // Trạng thái đang tải
+    const [error, setError] = useState(null); // Trạng thái lỗi
+
+    // const record = mockHealthRecords.find(record => record.id === parseInt(id));
+
+    useEffect(() => {
+        const getRecord = async () => {
+            try {
+                const data = await getHealthRecordsDetails(id);
+                setRecord(data);
+                console.log("Dữ liệu từ BE:", data);
+            } catch (err) {
+                console.log("Dữ liệu từ BE:", id);
+                setError(err.message);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        getRecord();
+    }, [id]);
+
+    if (loading) {
+        return <p>Đang tải dữ liệu...</p>;
+    }
+
+    if (error) {
+        return <p>{error}</p>;
+    }
 
     if (!record) {
         return <p>Không tìm thấy hồ sơ.</p>;
@@ -26,9 +58,9 @@ const HealthRecordDetail = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr key={record.id}>
-                        <td>{record.creatorName}</td>
-                        <td>{record.creatorID}</td>
+                    <tr key={record.ID_ho_so_suc_khoe}>
+                        <td>{record.ten_thu_y}</td>
+                        <td>{record.cccd_thu_y}</td>
                     </tr>
                 </tbody>
             </table>
@@ -47,13 +79,13 @@ const HealthRecordDetail = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr key={record.id}>
-                        <td>{record.id}</td>
-                        <td>{record.type}</td>
-                        <td>{record.sex}</td>
-                        <td>{record.health}</td>
-                        <td>{record.height}</td>
-                        <td>{record.weight}</td>
+                    <tr key={record.ID_ho_so_suc_khoe}>
+                        <td>{record.ID_ho_so_suc_khoe}</td>
+                        <td>{typeMapping[record.loai]}</td>
+                        <td>{sexMapping[record.gioi_tinh]}</td>
+                        <td>{record.tinh_trang}</td>
+                        <td>{record.chieu_cao}</td>
+                        <td>{record.can_nang}</td>
                     </tr>
                 </tbody>
             </table>
@@ -72,14 +104,16 @@ const HealthRecordDetail = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr key={record.id}>
-                        <td>{record.vaccinationID}</td>
-                        <td>{record.vaccinationDate}</td>
-                        <td>{record.vaccinationMethod}</td>
-                        <td>{record.vaccineType}</td>
-                        <td>{record.vaccineDose}</td>
-                        <td>{record.vaccinationReaction}</td>
-                    </tr>
+                {record.lich_su_tiem_chung?.map((vaccine) => (
+                        <tr key={vaccine.id_tc}>
+                            <td>{vaccine.id_tc}</td>
+                            <td>{vaccine.ngay_tiem}</td>
+                            <td>{vaccine.phuong_phap_tiem}</td>
+                            <td>{vaccine.loai_vaccine}</td>
+                            <td>{vaccine.lieu_luong}</td>
+                            <td>{vaccine.phan_ung_sau_tiem}</td>
+                        </tr>
+                    ))}
                 </tbody>
             </table>
 
@@ -97,14 +131,16 @@ const HealthRecordDetail = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr key={record.id}>
-                        <td>{record.treatmentID}</td>
-                        <td>{record.symptom}</td>
-                        <td>{record.diagnosis}</td>
-                        <td>{record.treatmentResult}</td>
-                        <td>{record.medicineType}</td>
-                        <td>{record.notes}</td>
-                    </tr>
+                    {record.lich_su_dieu_tri?.map((treatment) => (
+                        <tr key={treatment.id_lsdt}>
+                            <td>{treatment.id_lsdt}</td>
+                            <td>{treatment.trieu_chung}</td>
+                            <td>{treatment.chan_doan}</td>
+                            <td>{treatment.ket_qua}</td>
+                            <td>{treatment.loai_thuoc}</td>
+                            <td>{treatment.ghi_chu}</td>
+                        </tr>
+                    ))}
                 </tbody>
             </table> 
 

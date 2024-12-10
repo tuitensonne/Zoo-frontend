@@ -23,6 +23,7 @@ import CreateKhuVucNuoi from "./khu-vuc-nuoi-page/create-khu-vuc-nuoi";
 import CreateImportFoodComponent from "./import-food/create-import-food.component";
 import CreateImportAnimalComponent from "./import-animal/create-import-animal.component";
 
+
 export default function OfficeEmployeeComponent() {
     const navigate = useNavigate();
     const userRole = localStorage.getItem('role');
@@ -40,12 +41,14 @@ export default function OfficeEmployeeComponent() {
                 <Route index element={<ExportComponent/>} />  {}
                 <Route path="caring-history" element={<CaringHistoryComponent/>} />  {}
                 <Route path="import" element={<ImportComponent/>} />  {}
+
                 <Route path="importfood" element={<RecordImportFoodComponent/>} />  {}
                 <Route path="createPNTA" element={<CreateImportFoodComponent/>} />  {}
                 <Route path="createPNDV" element={<CreateImportAnimalComponent/>} />  {}
                 <Route path="importanimal" element={<RecordImportAnimalComponent/>} />  {}
                 <Route path="khuvucnuoi" element={<KhuVucNuoiComponent/>} />  {}
                 <Route path="createKVN" element={<CreateKhuVucNuoi/>} />  {}
+
                 <Route path="export" element={<ExportComponent/>} />  {}
                 <Route path="partner" element={<PartnerComponent/>} />  {}
                 <Route path="export/details/:id" element={<DetailComponent />} />

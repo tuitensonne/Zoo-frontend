@@ -1,24 +1,27 @@
 /* Table Container */
+
 .health-records-container {
-    overflow-x: auto; 
-    margin: 0 auto;
-    max-width: 100%; 
-    background-color: #ffffff;
+    margin-left: 250px; /* Dịch sang phải bằng chiều rộng của sidebar */
     padding: 20px;
+    background-color: #ffffff;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
+    width: calc(100% - 250px); /* Chiều rộng còn lại sau khi trừ sidebar */
+    max-width: 1200px; /* Giới hạn chiều rộng tối đa */
+    height: 700px; /* Chiều cao cố định */
 }
 /* Search Bar */
 .search-bar {
+    flex: 0 0 auto; /* Không co giãn */
     display: flex;
-    flex-wrap: wrap; 
-    gap: 10px;
-    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Tạo cảm giác nổi */
 }
 
 .search-bar input {
     flex: 1; 
-    padding: 8px;
+    padding: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
     min-width: 150px; 
@@ -37,6 +40,13 @@
 .search-bar button:hover {
     background-color: #0aa74b;
 }
+
+/* Bảng dữ liệu */
+.table-container {
+    flex: 1 1 auto; /* Bảng dữ liệu chiếm khoảng trống còn lại */
+    overflow-y: auto; /* Cuộn dọc khi dữ liệu vượt quá chiều cao */
+}
+
 .health-records-table {
     width: 100%;
     border-collapse: collapse;
@@ -53,6 +63,36 @@
 
 .health-records-table th {
     background-color: #f4f4f4;
+    /*position: sticky; /* Cố định tiêu đề */
+    top: 0; /* Đặt tiêu đề ở trên cùng khi cuộn */
+    z-index: 2; /* Đảm bảo tiêu đề luôn ở trên các hàng dữ liệu */
+}
+
+/* Phân trang */
+.pagination {
+    flex-shrink: 0; /* Không co giãn */
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.pagination button {
+    padding: 8px 16px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.pagination button.active {
+    background-color: #095f98;
+}
+
+.pagination button:disabled {
+    background-color: #ddd;
+    cursor: not-allowed;
 }
 
 /* Responsive Table */
