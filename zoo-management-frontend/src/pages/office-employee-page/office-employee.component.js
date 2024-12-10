@@ -12,7 +12,6 @@ import DetailComponent from "./export-page/Detail.component"; // Import DetailCo
 import ChooseExportComponent from "./export-page/phieuxuat.component"; 
 import ChooseExportnhomComponent from "./export-page/taophieunhom.component"; 
 import ChooseExportctComponent from "./export-page/taophieuct.component";
-import ImportFoodComponent from "./import-food/import-food.component";
 
 export default function OfficeEmployeeComponent() {
     const navigate = useNavigate();
@@ -31,7 +30,6 @@ export default function OfficeEmployeeComponent() {
                 <Route index element={<ExportComponent/>} />  {}
                 <Route path="caring-history" element={<CaringHistoryComponent/>} />  {}
                 <Route path="import" element={<ImportComponent/>} />  {}
-                <Route path="importfood" element={<ImportFoodComponent/>} />  {}
                 <Route path="export" element={<ExportComponent/>} />  {}
                 <Route path="partner" element={<PartnerComponent/>} />  {}
                 <Route path="export/details/:id" element={<DetailComponent />} />
