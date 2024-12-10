@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import './import-food.component.css';
+import './create-import-food.component.css';
 
-export default function ImportFoodComponent() {
+export default function CreateImportFoodComponent() {
     const [formData, setFormData] = useState({
         cccd: "",
         ID_ben_cung_cap_thuc_an: 0,
