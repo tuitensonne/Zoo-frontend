@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import './create-import-food.component.css';
@@ -18,16 +18,53 @@ export default function CreateImportFoodComponent() {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
     const navigate = useNavigate();
+    const [doiTacList, setDoiTacList] = useState([]);
+    const [vanPhongList, setVanPhongList] = useState([]);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                setLoading(true);
+                const [doiTacResponse, vanphongResponse] = await Promise.all([
+                    axios.get("http://localhost:8088/doi-tac/thucan"),
+                    axios.get("http://localhost:8088/nhan-vien/vanphong")
+                ]);
+                setDoiTacList(doiTacResponse.data.data);
+                setVanPhongList(vanphongResponse.data.data)
+            } catch (err) {
+                console.error("Lỗi khi tải dữ liệu:", err);
+                setError({ api: "Không thể tải dữ liệu." });
+            } finally {
+                setLoading(false);
+            }
+        };
+        fetchData();
+    }, []);
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
         setFormData((prev) => ({
             ...prev,
-            [name]: name === "ID_ben_cung_cap_thuc_an" ||
-                    name === "ham_luong_dinh_duong" ||
+            [name]: name === "ham_luong_dinh_duong" ||
                     name === "so_luong"
                 ? Number(value)
                 : value,
+        }));
+    };
+
+    const handleIdDoiTacChange = (e) => {
+        const selectedValue = e.target.value;
+        setFormData((prev) => ({
+            ...prev,
+            ID_ben_cung_cap_thuc_an: Number(selectedValue),
+        }));
+    };
+
+    const handleIdNhanVienChange = (e) => {
+        const selectedValue = e.target.value;
+        setFormData((prev) => ({
+            ...prev,
+            cccd: selectedValue,
         }));
     };
 
@@ -87,34 +124,23 @@ export default function CreateImportFoodComponent() {
                 <h1 className="container-title">Tạo Phiếu Nhập Thức Ăn</h1>
                 <form className="form" onSubmit={handleSubmit}>
                     <div className="form-label">
-                        CCCD:
-                        <input
-                            className="form-input"
-                            type="text"
-                            name="cccd"
-                            value={formData.cccd}
-                            onChange={handleInputChange}
-                        />
+                        Nhân viên thực hiện:
+                        <select className="form-input" name="cccd" value={formData.cccd} onChange={handleIdNhanVienChange}>
+                            <option value="">Chọn nhân viên</option>
+                            {vanPhongList.map((item, index) => (
+                                <option key={index} value={item.cccd}>{`${item.ho_va_ten} (${item.cccd})`}</option>
+                            ))}
+                        </select>
                         {error?.cccd && <div className="error-message">{error.cccd}</div>}
                     </div>
                     <div className="form-label">
-                        ID Bên Cung cấp thức ăn:
-                        <div className="form-row">
-                            <input
-                                className="form-input"
-                                type="number"
-                                name="ID_ben_cung_cap_thuc_an"
-                                value={formData.ID_ben_cung_cap_thuc_an}
-                                onChange={handleInputChange}
-                            />
-                            <button
-                                type="button"
-                                onClick={() => navigate("/add-doi-tac")}
-                                className="button-primary"
-                            >
-                                Thêm Đối Tác
-                            </button>
-                        </div>
+                        ID Sở Thú:
+                        <select className="form-input" name="ID_ben_cung_cap_thuc_an" value={formData.ID_ben_cung_cap_thuc_an} onChange={handleIdDoiTacChange}>
+                            <option value="">Chọn đối tác</option>
+                            {doiTacList.map((item, index) => (
+                                <option key={index} value={item.id_dt}>{`${item.ten_doi_tac} (${item.id_dt})`}</option>
+                            ))}
+                        </select>
                         {error?.ID_ben_cung_cap_thuc_an && <div className="error-message">{error.ID_ben_cung_cap_thuc_an}</div>}
                     </div>
                     <div className="form-label">

@@ -20,7 +20,7 @@ function App() {
               </PrivateRoute>} />  {}
           
           <Route 
-            path="/vet" 
+            path="/vet/*" 
             element={
               <PrivateRoute>              
                 <VetEmployeeComponent/>

@@ -39,10 +39,8 @@ export default function SidebarComponent() {
             { label: "Tiêm Chủng", link: "/vet/tc" },
         ],
         "1": [
-            { label: "Thông Tin Chăm Sóc", link: "/office/caring-history" },
             { label: "Phiếu Nhập", link: "/office/import" },
             { label: "Phiếu Xuất", link: "/office/export" },
-            { label: "Đối Tác", link: "/office/partner" },
             { label: "Khu vực nuôi", link: "/office/khuvucnuoi" },
         ],
     };

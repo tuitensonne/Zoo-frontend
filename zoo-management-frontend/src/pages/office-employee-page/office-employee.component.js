@@ -22,6 +22,8 @@ import RecordImportFoodComponent from "./import-food/record-import-food.componen
 import CreateKhuVucNuoi from "./khu-vuc-nuoi-page/create-khu-vuc-nuoi";
 import CreateImportFoodComponent from "./import-food/create-import-food.component";
 import CreateImportAnimalComponent from "./import-animal/create-import-animal.component";
+import CreateCaTheComponent from "./import-animal/create-ca-the";
+import CreateNhomComponent from "./import-animal/create-nhom";
 
 
 export default function OfficeEmployeeComponent() {
@@ -38,13 +40,17 @@ export default function OfficeEmployeeComponent() {
         <div className="login-container">
             <SidebarComponent/>
             <Routes>
-                <Route index element={<ExportComponent/>} />  {}
+                <Route index element={<ImportComponent/>} />  {}
                 <Route path="caring-history" element={<CaringHistoryComponent/>} />  {}
                 <Route path="import" element={<ImportComponent/>} />  {}
 
                 <Route path="importfood" element={<RecordImportFoodComponent/>} />  {}
+                
                 <Route path="createPNTA" element={<CreateImportFoodComponent/>} />  {}
                 <Route path="createPNDV" element={<CreateImportAnimalComponent/>} />  {}
+                <Route path="createCT" element={<CreateCaTheComponent/>} />  {}
+                <Route path="createNhom" element={<CreateNhomComponent/>} />  {}
+
                 <Route path="importanimal" element={<RecordImportAnimalComponent/>} />  {}
                 <Route path="khuvucnuoi" element={<KhuVucNuoiComponent/>} />  {}
                 <Route path="createKVN" element={<CreateKhuVucNuoi/>} />  {}

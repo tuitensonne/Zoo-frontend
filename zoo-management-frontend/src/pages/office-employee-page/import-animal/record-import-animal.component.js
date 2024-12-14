@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import './record-import-animal.component.css';
 
 export default function RecordImportAnimalComponent() {
 
@@ -16,6 +15,8 @@ export default function RecordImportAnimalComponent() {
     const handleInputChange = (e) => {
         setSearchId(e.target.value);
     };
+
+
 
     const handleSearch = async () => {
         if (!searchId) {

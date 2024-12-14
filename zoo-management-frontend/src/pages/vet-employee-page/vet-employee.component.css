@@ -1,176 +1,161 @@
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f5f5f5;
-    margin: 0;
-    padding: 0;
-  }
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+  margin: 0;
+  padding: 0;
+}
+
+.login-container {
+  display: flex;
+
+  justify-content: space-between;
   
+  align-items: center;
+  
+  min-height: 100vh;
+  padding: 20px;
+  background-color: #f5f5f5;
+}
+
+.login-form {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-align: left;
+  width: 100%;
+  max-width: 600px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.login-form h1 {
+  font-size: 28px;
+  margin-bottom: 8px;
+}
+
+.login-form p {
+  color: #666;
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 16px;
+  margin-bottom: 6px;
+  font-weight: bold;
+}
+
+.form-group select {
+  width: auto;
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.form-group input{
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.password-input {
+  display: flex;
+  align-items: center;
+}
+
+.password-input input {
+  flex: 1;
+}
+
+.toggle-password {
+  background: none;
+  border: none;
+  color: #007bff;
+  font-size: 16px;
+  cursor: pointer;
+  margin-left: 8px;
+}
+
+.toggle-password:hover {
+  text-decoration: underline;
+}
+
+.login-button {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  font-size: 18px;
+  font-weight: bold;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.login-button:hover {
+  background-color: #0056b3;
+}
+
+.poster {
+  border-radius: 8px;
+}
+
+/* Media Queries */
+
+/* Thiết bị lớn hơn 768px */
+@media (min-width: 768px) {
   .login-container {
-    display: flex;
-
-    justify-content: space-between;
-    
-    align-items: center;
-    
-    min-height: 100vh;
-    padding: 20px;
-    background-color: #f5f5f5;
+    flex-direction: row;
+    padding: 40px;
   }
-  
+
   .login-form {
-    background: #fff;
-    padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    text-align: left;
-    width: 100%;
-    max-width: 600px;
-    margin-left: 20px;
-    margin-right: 20px;
-  }
-  
-  .login-form h1 {
-    font-size: 28px;
-    margin-bottom: 8px;
-  }
-  
-  .login-form p {
-    color: #666;
-    font-size: 16px;
-    margin-bottom: 20px;
-  }
-  
-  .form-group {
-    margin-bottom: 20px;
-  }
-  
-  .form-group label {
-    display: block;
-    font-size: 16px;
-    margin-bottom: 6px;
-    font-weight: bold;
+    margin-left: 50px;
+    max-width: 50%;
   }
 
-  .form-group select {
-    width: auto;
-    padding: 12px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+  .poster {
+    height: auto;
+    width: 30%; /* Chia không gian hợp lý */
   }
+}
 
-  .form-group input{
-    width: 100%;
-    padding: 12px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-  
-  .password-input {
-    display: flex;
+/* Thiết bị nhỏ hơn 768px */
+@media (max-width: 768px) {
+  .login-container {
+    flex-direction: column; /* Form và ảnh xếp chồng */
     align-items: center;
   }
-  
-  .password-input input {
-    flex: 1;
+
+  .login-form {
+    width: 90%;
+    margin: 20px 0;
   }
-  
-  .toggle-password {
-    background: none;
-    border: none;
-    color: #007bff;
-    font-size: 16px;
-    cursor: pointer;
-    margin-left: 8px;
-  }
-  
-  .toggle-password:hover {
-    text-decoration: underline;
-  }
-  
-  .login-button {
-    display: block;
-    width: 100%;
-    padding: 12px;
-    font-size: 18px;
-    font-weight: bold;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  .login-button:hover {
-    background-color: #0056b3;
-  }
-  
+
   .poster {
-    border-radius: 8px;
+    width: 90%;
+    height: auto;
   }
-  
-  /* Media Queries */
-  
-  /* Thiết bị lớn hơn 768px */
-  @media (min-width: 768px) {
-    .login-container {
-      flex-direction: row;
-      padding: 40px;
-    }
-  
-    .login-form {
-      margin-left: 50px;
-      max-width: 50%;
-    }
-  
-    .poster {
-      height: auto;
-      width: 30%; /* Chia không gian hợp lý */
-    }
-  }
-  
-  /* Thiết bị nhỏ hơn 768px */
-  @media (max-width: 768px) {
-    .login-container {
-      flex-direction: column; /* Form và ảnh xếp chồng */
-      align-items: center;
-    }
-  
-    .login-form {
-      width: 90%;
-      margin: 20px 0;
-    }
-  
-    .poster {
-      width: 90%;
-      height: auto;
-    }
-  }
+}
 
-
-/* .content {
-    padding: 20px;
-    background-color: #f5f5f5;
-    overflow-x: hidden; 
-    overflow-y: auto;
-    transition: margin-left 0.3s ease-in-out; 
-} */
 
 .content {
-  width: 100%; /* Bảo đảm chiều rộng không vượt quá viewport */
-  max-width: 100%; /* Giới hạn tối đa */
-  box-sizing: border-box; /* Bao gồm cả padding vào kích thước tổng */
-  overflow-x: hidden; /* Ngăn hiện tượng tràn ngang */
+  padding: 20px;
+  background-color: #f5f5f5;
+  overflow-y: auto;
+  transition: margin-left 0.3s ease-in-out; 
 }
 
-
-/* Khi sidebar hiển thị */
 .sidebar:not(.hidden) + .content {
-    margin-left: 250px; /* Độ rộng sidebar */
-}
-
-/* Khi sidebar bị ẩn */
-.sidebar.hidden + .content {
-    margin-left: 0;
+  margin-left: 250px; /* Độ rộng sidebar */
 }
