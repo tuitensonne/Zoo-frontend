@@ -6,19 +6,26 @@ const CreateNhomComponent = () => {
     const location = useLocation();
     const receivedData = location.state;
     const [formData, setFormData] = useState({
+        cccd: "", 
+        ID_so_thu: 0, 
+        ten_khoa_hoc: "", 
+        ngay_nhap: "", 
+        so_luong: 0, 
+        ly_do_nhap: "", 
         id_kv: 0,
-        id_hssk: 0,
-        ten_khoa_hoc: '',
-        so_luong: 0
+        id_hssk: 0
     });
 
     useEffect(() => {
         if (receivedData.ten_khoa_hoc) {
-            console.log(receivedData)
             setFormData((prevData) => ({
                 ...prevData,
                 ten_khoa_hoc: receivedData.ten_khoa_hoc,
-                so_luong: receivedData.so_luong
+                ID_so_thu: receivedData.ID_so_thu,
+                cccd: receivedData.cccd,
+                ngay_nhap: receivedData.ngay_nhap,
+                so_luong: Number(receivedData.so_luong),
+                ly_do_nhap: receivedData.ly_do_nhap
             }));
         }
     }, [receivedData]);
@@ -87,18 +94,13 @@ const CreateNhomComponent = () => {
             ...formData,
             id_kv: Number(formData.id_kv),
             id_hssk: Number(formData.id_hssk),
-            so_luong: Number(formData.so_luong),
         };
-        console.log(sanitizedData)
-        
         try {
             
-            await axios.post("http://localhost:8088/phieu-nhap-dong-vat", receivedData);
-            await axios.post('http://localhost:8088/loai-dong-vat/create/nhom', sanitizedData);
+            await axios.post("http://localhost:8088/phieu-nhap-dong-vat/nhom", sanitizedData);
             alert('Thêm nhóm thành công!');
         } catch (error) {
-            console.error('Lỗi khi thêm nhóm:', error);
-            alert('Thêm nhóm thất bại!');
+            alert(`Thêm cá thể thất bại! ${error.response.data.details}`);
         }
     };
 
@@ -122,10 +124,17 @@ const CreateNhomComponent = () => {
 
                 <div className="form-label">
                     Khu vực nuôi:
-                    <select className="form-input" name="cccd" value={formData.cccd} onChange={handleKhuVucChange}>
+                    <select
+                        className="form-input"
+                        name="id_kv"
+                        value={formData.id_kv}
+                        onChange={handleKhuVucChange}
+                    >
                         <option value="">Chọn khu vực nuôi</option>
                         {khuVucList.map((item, index) => (
-                            <option key={index} value={item.id_kv}>{`${item.vi_tri} (${item.id_kv}, ${item.loai_moi_truong})`}</option>
+                            <option key={index} value={item.id_kv}>
+                                {`${item.vi_tri} (${item.id_kv}, ${item.loai_moi_truong})`}
+                            </option>
                         ))}
                     </select>
                     {error?.id_kv && <div className="error-message">{error.id_kv}</div>}

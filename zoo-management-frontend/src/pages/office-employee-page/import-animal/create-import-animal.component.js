@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
+import axios, { formToJSON } from "axios";
 
 export default function CreateImportAnimalComponent() {
     const [formData, setFormData] = useState({ cccd: "", ID_so_thu: 0, ten_khoa_hoc: "", ngay_nhap: "", so_luong: 0, ly_do_nhap: "", loai: "" });
@@ -93,8 +93,8 @@ export default function CreateImportAnimalComponent() {
         }
         setLoading(true);
         setError(null);
-        
-        if (formData.loai == "cá thể")
+        console.log(formData.loai)
+        if (formData.loai == "Cá thể")
             navigate("/office/createCT", { state: formData })
         else navigate("/office/createNhom", { state: formData })
     };

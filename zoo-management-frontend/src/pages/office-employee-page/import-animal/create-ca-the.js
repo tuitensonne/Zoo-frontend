@@ -6,9 +6,14 @@ const CreateCaTheComponent = () => {
     const location = useLocation();
     const receivedData = location.state;
     const [formData, setFormData] = useState({
+        cccd: "", 
+        ID_so_thu: 0, 
+        ten_khoa_hoc: "", 
+        ngay_nhap: "", 
+        so_luong: 0, 
+        ly_do_nhap: "", 
         id_kv: 0,
         id_hssk: 0,
-        ten_khoa_hoc: '',
         id_ct_cha: null,
         ten_khoa_hoc_cha: null,
         id_ct_me: null,
@@ -25,6 +30,11 @@ const CreateCaTheComponent = () => {
             setFormData((prevData) => ({
                 ...prevData,
                 ten_khoa_hoc: receivedData.ten_khoa_hoc,
+                ID_so_thu: receivedData.ID_so_thu,
+                cccd: receivedData.cccd,
+                ngay_nhap: receivedData.ngay_nhap,
+                so_luong: Number(receivedData.so_luong),
+                ly_do_nhap: receivedData.ly_do_nhap
             }));
         }
     }, [receivedData]);
@@ -124,16 +134,12 @@ const CreateCaTheComponent = () => {
             id_ct_cha: formData.id_ct_cha ? Number(formData.id_ct_cha) : null ,
             id_ct_me: formData.id_ct_me ? Number(formData.id_ct_me) : null,
         };
-        console.log(sanitizedData)
         
         try {
-            
-            await axios.post("http://localhost:8088/phieu-nhap-dong-vat", receivedData);
-            await axios.post('http://localhost:8088/loai-dong-vat/create/cathe', sanitizedData);
+            await axios.post('http://localhost:8088/phieu-nhap-dong-vat/cathe', sanitizedData);
             alert('Thêm cá thể thành công!');
         } catch (error) {
-            console.error('Lỗi khi thêm cá thể:', error);
-            alert('Thêm cá thể thất bại!');
+            alert(`Thêm cá thể thất bại! ${error.response.data.details}`);
         }
     };
 

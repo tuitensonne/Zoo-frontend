@@ -92,7 +92,6 @@ export default function RecordImportAnimalComponent() {
                 <th>Số lượng</th>
                 <th>Tên loài động vật</th>
                 <th>Ngày nhập</th>
-                <th>Hành động</th>
                 </tr>
             </thead>
             <tbody>
@@ -104,14 +103,6 @@ export default function RecordImportAnimalComponent() {
                     <td>{phieu_nhap.so_luong}</td>
                     <td>{phieu_nhap.ten_khoa_hoc}</td>
                     <td>{(new Date(phieu_nhap.ngay_nhap)).toISOString().split('T')[0]}</td>
-                    <td>
-                    <button
-                        className="detail-button"
-                        onClick={() => alert(`Xem chi tiết phiếu nhập ID: ${phieu_nhap.id_kv}`)}
-                    >
-                        Xem chi tiết
-                    </button>
-                    </td>
                 </tr>
                 ))}
             </tbody>
